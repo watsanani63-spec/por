@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>จัดการผู้สมัคร | Admin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/admin.js"></script>
+</head>
+<body class="admin-body">
+  <aside class="sidebar">
+    <a class="brand sidebar-brand" href="dashboard.html"><span class="brand-mark small">NR</span><span>Admission Admin</span></a>
+    <p class="side-label">เมนูหลัก</p>
+    <a class="side-link active" href="dashboard.html">▦　ภาพรวมผู้สมัคร</a>
+    <a class="side-link" href="../index.html">↗　หน้าผู้สมัคร</a>
+    <div class="sidebar-bottom"><button id="adminLogout" class="btn side-logout full">ออกจากระบบ</button></div>
+  </aside>
+  <main class="admin-main">
+    <header class="admin-top"><div><p class="eyebrow">ADMINISTRATION</p><h1>จัดการข้อมูลผู้สมัคร</h1></div><span class="admin-chip">ผู้ดูแลระบบ</span></header>
+    <section class="stats-grid">
+      <article class="stat-card"><span>ผู้สมัครทั้งหมด</span><strong id="total">0</strong><small>รายการ</small></article>
+      <article class="stat-card"><span>รอตรวจสอบ</span><strong id="pending">0</strong><small>รายการ</small></article>
+      <article class="stat-card"><span>อนุมัติแล้ว</span><strong id="approved">0</strong><small>รายการ</small></article>
+      <article class="stat-card"><span>ไม่อนุมัติ</span><strong id="rejected">0</strong><small>รายการ</small></article>
+    </section>
+    <section class="panel admin-panel">
+      <div class="section-heading wrap-heading"><div><p class="eyebrow">APPLICATION LIST</p><h2>รายชื่อผู้สมัครเรียน</h2><p id="summary" class="muted">กำลังโหลดข้อมูล...</p></div><button id="refresh" class="btn light">↻ รีเฟรช</button></div>
+      <div class="toolbar"><input id="search" type="search" placeholder="ค้นหาชื่อ สาขาวิชา หรืออีเมล"><select id="statusFilter"><option value="">ทุกสถานะ</option><option value="pending">รอตรวจสอบ</option><option value="approved">อนุมัติแล้ว</option><option value="rejected">ไม่อนุมัติ</option></select></div>
+      <div class="table-wrap"><table><thead><tr><th>ผู้สมัคร</th><th>ระดับ / สาขา</th><th>เบอร์ติดต่อ</th><th>วันที่สมัคร</th><th>สถานะ</th><th>จัดการ</th></tr></thead><tbody id="applicantList"><tr><td colspan="6">กำลังโหลด...</td></tr></tbody></table></div>
+      <p id="adminMessage" class="form-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <dialog id="editDialog" class="edit-dialog">
+    <form id="editForm" method="dialog">
+      <div class="section-heading"><div><p class="eyebrow">EDIT APPLICATION</p><h2>แก้ไขข้อมูลผู้สมัคร</h2></div><button type="button" id="closeDialog" class="icon-btn">✕</button></div>
+      <input type="hidden" name="id">
+      <div class="form-grid">
+        <label>คำนำหน้า<input name="prefix"></label>
+        <label>ชื่อจริง<input name="first_name" required></label>
+        <label>นามสกุล<input name="last_name" required></label>
+        <label>วันเกิด<input name="birth_date" type="date"></label>
+        <label>เพศ<input name="gender"></label>
+        <label>เบอร์โทร<input name="phone" required></label>
+        <label>อีเมล<input name="email" type="email" required></label>
+        <label>ระดับการศึกษา<input name="education_level"></label>
+        <label>สาขาวิชา<input name="department" required></label>
+        <label>สถานศึกษาเดิม<input name="previous_school"></label>
+        <label>ปีการศึกษา<input name="academic_year"></label>
+        <label>บ้านเลขที่<input name="address_no"></label>
+        <label>หมู่ที่<input name="village"></label>
+        <label>ตำบล<input name="subdistrict"></label>
+        <label>อำเภอ<input name="district"></label>
+        <label>จังหวัด<input name="province"></label>
+        <label>รหัสไปรษณีย์<input name="postal_code"></label>
+        <label>ชื่อผู้ปกครอง<input name="guardian_name"></label>
+        <label>เบอร์ผู้ปกครอง<input name="guardian_phone"></label>
+        <label>สถานะ<select name="status"><option value="pending">รอตรวจสอบ</option><option value="approved">อนุมัติ</option><option value="rejected">ไม่อนุมัติ</option></select></label>
+        <label class="span-2">หมายเหตุจากผู้ดูแล<textarea name="admin_note" rows="3"></textarea></label>
+      </div>
+      <div class="form-actions"><button class="btn primary" type="submit">บันทึกการแก้ไข</button><button type="button" id="cancelEdit" class="btn light">ยกเลิก</button></div>
+    </form>
+  </dialog>
+</body>
+</html>

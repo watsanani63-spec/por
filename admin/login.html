@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ผู้ดูแลระบบ | ระบบสมัครเรียน</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script type="module" src="../js/admin-login.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="brand-mark">AD</div>
+    <p class="eyebrow">ADMINISTRATOR</p>
+    <h1>เข้าสู่ระบบผู้ดูแล</h1>
+    <p class="muted">สำหรับเจ้าหน้าที่จัดการข้อมูลผู้สมัคร</p>
+    <form id="adminLoginForm" class="form-stack">
+      <label>อีเมล<input id="email" type="email" required></label>
+      <label>รหัสผ่าน<input id="password" type="password" required></label>
+      <button class="btn primary full" type="submit">เข้าสู่ระบบผู้ดูแล</button>
+      <p id="message" class="form-message" aria-live="polite"></p>
+    </form>
+    <div class="auth-bottom"><a href="../index.html">กลับหน้าผู้สมัคร</a></div>
+  </main>
+</body>
+</html>

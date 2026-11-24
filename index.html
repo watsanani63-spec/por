@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เข้าสู่ระบบ | ระบบสมัครเรียน</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="module" src="js/auth.js"></script>
+</head>
+<body class="auth-page">
+  <main class="auth-card">
+    <div class="brand-mark">NR</div>
+    <p class="eyebrow">STUDENT ADMISSION</p>
+    <h1>เข้าสู่ระบบ</h1>
+    <p class="muted">ระบบลงทะเบียนสมัครเรียนออนไลน์</p>
+    <form id="loginForm" class="form-stack">
+      <label>อีเมล<input id="email" type="email" required autocomplete="email" placeholder="name@email.com"></label>
+      <label>รหัสผ่าน<input id="password" type="password" required autocomplete="current-password" placeholder="กรอกรหัสผ่าน"></label>
+      <button class="btn primary full" type="submit">เข้าสู่ระบบ</button>
+      <p id="message" class="form-message" aria-live="polite"></p>
+    </form>
+    <div class="auth-bottom">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></div>
+    <div class="auth-bottom"><a href="admin/login.html">เข้าสู่ระบบผู้ดูแล</a></div>
+  </main>
+</body>
+</html>
